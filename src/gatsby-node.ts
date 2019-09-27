@@ -11,6 +11,21 @@ interface ServerlessRoutingRule {
     RedirectRule: RoutingRule['Redirect'];
 }
 
+const getCustom404Rule = (pluginOptions: PluginOptions): RoutingRules => {
+    // we are checking for this before calling the function
+    const custom404Page = pluginOptions.custom404Page || '';
+    return [{
+        Condition: {
+            HttpErrorCodeReturnedEquals: '404',
+        },
+        Redirect: {
+            Protocol: pluginOptions.protocol,
+            HostName: pluginOptions.hostname,
+            ReplaceKeyWith: withoutTrailingSlash(withoutLeadingSlash(custom404Page))
+        }
+    }];
+};
+
 // converts gatsby redirects + rewrites to S3 routing rules
 // https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html
 const getRules = (pluginOptions: PluginOptions, routes: GatsbyRedirect[]): RoutingRules => (
@@ -121,11 +136,16 @@ export const onPostBuild = ({ store }: any, userPluginOptions: PluginOptions) =>
         if (!pluginOptions.generateRedirectObjectsForPermanentRedirects) {
             routingRules.push(...getRules(pluginOptions, permanentRedirects));
         }
+
         if (routingRules.length > 50) {
             throw new Error(
                 `${routingRules.length} routing rules provided, the number of routing rules 
 in a website configuration is limited to 50.
 Try setting the 'generateRedirectObjectsForPermanentRedirects' configuration option.`);
+        }
+
+        if (pluginOptions.custom404Page) {
+            routingRules.push(...getCustom404Rule(pluginOptions));
         }
 
         slsRoutingRules = routingRules.map(({ Redirect, Condition }) => ({

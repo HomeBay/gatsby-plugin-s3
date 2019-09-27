@@ -38,6 +38,8 @@ export interface PluginOptions {
     // },
     params?: Params;
 
+    custom404Page?: string;
+
     // Define bucket ACL, defaults to 'public-read'
     // If you don't want to use an ACL, set this to null
     acl?: null | BucketCannedACL;
@@ -81,6 +83,7 @@ export const DEFAULT_OPTIONS: PluginOptions = {
     bucketName: '',
 
     params: {},
+    custom404Page: '',
     mergeCachingParams: true,
     generateRoutingRules: true,
     // TODO: set this to true by default in the next major version
