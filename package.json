@@ -12,7 +12,7 @@
     "develop": "babel --extensions=\".ts\" --out-dir=. src/ -w",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
-    "preinstall": "npm run build"
+    "preinstall": "npm install;npm run build"
   },
   "repository": {
     "type": "git",
