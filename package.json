@@ -11,12 +11,14 @@
     "typecheck": "tsc --project . --noEmit",
     "develop": "babel --extensions=\".ts\" --out-dir=. src/ -w",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect",
-    "preinstall": "npm install;npm run build"
+    "prepare": "npm run snyk-protect"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/btempchin"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jariz/gatsby-plugin-s3.git"
+    "url": "git+https://github.com/btempchin/gatsby-plugin-s3.git"
   },
   "keywords": [
     "gatsby",
@@ -60,9 +62,9 @@
   "author": "Jari Zwarts <jarizw@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jariz/gatsby-plugin-s3/issues"
+    "url": "https://github.com/btempchin/gatsby-plugin-s3/issues"
   },
-  "homepage": "https://github.com/jariz/gatsby-plugin-s3#readme",
+  "homepage": "https://github.com/btempchin/gatsby-plugin-s3#readme",
   "dependencies": {
     "@types/async": "^2.4.1",
     "@types/jest": "^24.0.0",
