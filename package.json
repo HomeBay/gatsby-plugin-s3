@@ -13,9 +13,6 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com/btempchin"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/btempchin/gatsby-plugin-s3.git"
