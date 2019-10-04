@@ -19,6 +19,7 @@ const getCustom404Rule = (pluginOptions: PluginOptions): RoutingRules => {
             HttpErrorCodeReturnedEquals: '404',
         },
         Redirect: {
+            HttpRedirectCode: '302',
             Protocol: pluginOptions.protocol,
             HostName: pluginOptions.hostname,
             ReplaceKeyWith: withoutTrailingSlash(withoutLeadingSlash(custom404Page))
