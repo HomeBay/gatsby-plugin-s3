@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/btempchin/gatsby-plugin-s3.git"
+    "url": "git+https://github.com/HomeBay/gatsby-plugin-s3.git"
   },
   "keywords": [
     "gatsby",
@@ -64,9 +64,9 @@
   "author": "Jari Zwarts <jarizw@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/btempchin/gatsby-plugin-s3/issues"
+    "url": "https://github.com/HomeBay/gatsby-plugin-s3/issues"
   },
-  "homepage": "https://github.com/btempchin/gatsby-plugin-s3#readme",
+  "homepage": "https://github.com/HomeBay/gatsby-plugin-s3#readme",
   "dependencies": {
     "async": "^2.6.2",
     "aws-sdk": "^2.382.0",
